@@ -1,6 +1,6 @@
 @test
 Feature: GUIExample
-  This page contains examples for GUI test case scenario
+  This page contains examples for GUI test case scenarios
 
   Scenario: Going to an example website and making a search for common searches and expect results
     Given I land on "https://www.google.com" page
