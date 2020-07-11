@@ -11,6 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class sets up and configures selenium and rest assured for their respective tests.
@@ -91,4 +93,21 @@ public class BaseSetup {
     public WebDriver getWebDriver(){
         return this.webDriver;
     }
+    /**
+     * This method gets the configured webdriver.
+     * @return Webdriver - the webdriver currently being used.
+     */
+    public String checkForParameterizedValues(String value){
+        String patternString1 = "(\\{\\{.+?}})";
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(value);
+
+        while(matcher.find()) {
+            System.out.println("found: " + matcher.group(1) +
+                    " "       + matcher.group(2));
+        }
+
+        return value;
+    }
+
 }
